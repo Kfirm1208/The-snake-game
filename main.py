@@ -49,29 +49,40 @@ def draw_text(text,font,text_col,x,y):
  
 def main_menu():
     run = True
-    game_play = False
+    action = False
     while run:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-                sys.exit()
-            
+                sys.exit()     
         win.blit(bg_main,(0,0))
+        
+        # button Click
         if Play_button.draw(win):
-            game_play = True
-        if game_play ==True:
-            game()
-            game_play = False
+            action = True
+            if action ==True:
+                game()
+                action != action 
         if Score_button.draw(win):
-            print('Score')
+            action = True
+            if action == True  :
+                print('score')
+                action != action 
         if Exit_button.draw(win):
-            run = False
-            sys.exit()
+            action = True
+            if action ==True:
+                run = False
+                action != action 
+                sys.exit()
+                
         draw_text('The Snake',T_font,text_col,240,100)
         draw_text('no.65010682',N_font,text_col,20,10)
         clock.tick(fps)
         pygame.display.update()        
 
+def score_page():
+    run =True
+    
 def game():  
     run = True
     while run:
