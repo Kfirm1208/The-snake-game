@@ -101,8 +101,10 @@ def game():
         main_game.draw_elements(cell_number,cell_size,win,apple,game_font)
         clock.tick(fps)
         pygame.display.update()  
-            
-main_menu()
+
+
+if __name__ == '__main__':           
+    main_menu()
 
     
 
