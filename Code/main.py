@@ -19,10 +19,10 @@ pygame.display.set_caption('The Snake')
 pygame.display.set_icon(icon)
 
 #button setting
-Play_button = Button('Play',210,50,(305,250),3)
-Score_button = Button('Score',210,50,(305,380),3)
-Exit_button = Button('Exit',210,50,(305,520),3)
-Back_button = Button('Back',210,50,(305,600),3)
+Play_button = Button('Play',210,50,(305,270),3)
+Score_button = Button('Score',210,50,(305,390),3)
+Exit_button = Button('Exit',210,50,(305,515),3)
+Back_button = Button('Back',210,50,(310,600),3)
 
 #define font
 N_font =  pygame.font.Font('Font/PoetsenOne-Regular.ttf',20)
@@ -95,7 +95,8 @@ def score_page():
             if Back_button.draw(win):
                 action =True
                 if action ==True:
-                    main_menu()    
+                    main_menu() 
+                    action != action   
         draw_text('Score',T_font,text_col,330,100)       
         clock.tick(fps)     
         pygame.display.update()
