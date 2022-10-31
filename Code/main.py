@@ -48,6 +48,7 @@ def draw_text(text,font,text_col,x,y):
     img = font.render(text,True,text_col)
     win.blit(img,(x,y))        
  
+# main menu 
 def main_menu():
     run = True
     action = False
@@ -81,6 +82,7 @@ def main_menu():
         clock.tick(fps)
         pygame.display.update()        
 
+#score page
 def score_page():
     run =True
     action = False
@@ -97,7 +99,8 @@ def score_page():
         draw_text('Score',T_font,text_col,330,100)       
         clock.tick(fps)     
         pygame.display.update()
-    
+
+#game   
 def game():  
     run = True
     while run:
@@ -128,7 +131,7 @@ def game():
         clock.tick(fps)
         pygame.display.update()  
 
-
+#main function
 if __name__ == '__main__':           
     main_menu()
 
