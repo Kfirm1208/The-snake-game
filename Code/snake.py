@@ -57,13 +57,17 @@ class SNAKE:
                 elif previous_block.y == next_block.y:
                     surface.blit(self.body_horizontal, block_rect)
                 else:
-                    if previous_block.x == -1 and next_block.y == -1 or previous_block.y == -1 and next_block.x == -1:
+                    if (previous_block.x == -1 and next_block.y == -1 or previous_block.y == -1 
+                        and next_block.x == -1):
                         surface.blit(self.body_tl, block_rect)
-                    elif previous_block.x == -1 and next_block.y == 1 or previous_block.y == 1 and next_block.x == -1:
+                    elif (previous_block.x == -1 and next_block.y == 1 or previous_block.y == 1 
+                          and next_block.x == -1):
                         surface.blit(self.body_bl, block_rect)
-                    elif previous_block.x == 1 and next_block.y == -1 or previous_block.y == -1 and next_block.x == 1:
+                    elif (previous_block.x == 1 and next_block.y == -1 or previous_block.y == -1 
+                          and next_block.x == 1):
                         surface.blit(self.body_tr, block_rect)
-                    elif previous_block.x == 1 and next_block.y == 1 or previous_block.y == 1 and next_block.x == 1:
+                    elif (previous_block.x == 1 and next_block.y == 1 or previous_block.y == 1 
+                        and next_block.x == 1):
                         surface.blit(self.body_br, block_rect)
 
     def snake_move(self):

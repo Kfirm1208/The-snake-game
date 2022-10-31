@@ -66,7 +66,8 @@ class Game_main:
         score_y = int(size * size_number -40) 
         score_rect = score_surface.get_rect(center = (score_x,score_y))           
         apple_rect = apple.get_rect(midright = (score_rect.left,score_rect.centery))
-        bg_rect = pygame.Rect(apple_rect.left,apple_rect.top,apple_rect.width +apple_rect.width+6,apple_rect.height)
+        bg_rect = pygame.Rect(apple_rect.left,apple_rect.top,apple_rect.width +
+                            apple_rect.width+6,apple_rect.height)
         
         pygame.draw.rect(surface,(167,209,61),bg_rect)
         surface.blit(score_surface,score_rect)
