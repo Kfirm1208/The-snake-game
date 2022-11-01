@@ -78,7 +78,7 @@ def main_menu():
                 sys.exit()
                 
         draw_text('The Snake',T_font,text_col,235,100)
-        draw_text('no.65010682',N_font,text_col,20,10)
+        draw_text('Pornthep Thammawong no.65010682',N_font,text_col,20,10)
         clock.tick(fps)
         pygame.display.update()        
 
