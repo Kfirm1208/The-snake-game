@@ -82,9 +82,15 @@ def main_menu():
         
 #open score              
 def open_score():
-    with open('score.txt','r') as file:
-       line =  file.readlines()
-       
+    
+    try:
+        with open('score.txt','r') as file:
+           for line in file:
+                 score = line[2]       
+        draw_text(str(score),N_font,text_col,win,330,200)
+            
+    except Exception as e:
+        print(e)   
         
 #score page
 def score_page():
@@ -102,7 +108,7 @@ def score_page():
                     main_menu() 
                     action != action   
         draw_text('Score',T_font,text_col,win,330,100)
-        draw_text(open_score(),N_font,text_col,win,340,100)       
+        open_score()  
         clock.tick(fps)     
         pygame.display.update()
 

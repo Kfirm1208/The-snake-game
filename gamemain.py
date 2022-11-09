@@ -1,4 +1,4 @@
-import pygame,sys
+import pygame
 from game_over import game_over
 import snake,fruit
 
@@ -44,10 +44,10 @@ class Game_main:
             if block == self.snake.body[0]:
                self.gameover()
                
-#ปัญหาเริ่ม้เกมมาจะขึ้นสถานะ game over ทำให้หน้า game over ขึ้นตลอดเวลา
     def gameover(self):
+        score =self.score
         self.record_score()
-        game_over()
+        game_over(score)
               
     def draw_grass(self,size_number,size,surface):
         grass_color = (167,209,61)
@@ -82,10 +82,11 @@ class Game_main:
     
     
     def record_score(self):
-        print(self.score)
-        if self.score > 0:
-            with open('score.txt','a') as file:
-                file.write(str(self.score)+ '\n')
-                
+        if self.score >= 0:
+            try:
+                with open('score.txt','a') as file:
+                    file.write(str(self.score) + "\n")
+            except Exception as e:
+                print(e)        
     
         
