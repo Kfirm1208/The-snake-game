@@ -5,6 +5,7 @@ from pygame.math import Vector2
 from button import Button
 from gamemain import Game_main
 
+
 pygame.mixer.pre_init(44100,-16,2,512)
 pygame.init()
 
@@ -77,8 +78,13 @@ def main_menu():
         draw_text('The Snake',T_font,text_col,win,235,100)
         draw_text('Pornthep Thammawong no.65010682',N_font,text_col,win,20,10)
         clock.tick(fps)
-        pygame.display.update()        
-
+        pygame.display.update()  
+        
+#open score              
+def open_score():
+    with open('score.txt','r') as file:
+        file.readlines()
+        
 #score page
 def score_page():
     run =True
@@ -94,7 +100,8 @@ def score_page():
                 if action ==True:
                     main_menu() 
                     action != action   
-        draw_text('Score',T_font,text_col,win,330,100)       
+        draw_text('Score',T_font,text_col,win,330,100)
+        draw_text(open_score(),N_font,text_col,win,340,100)       
         clock.tick(fps)     
         pygame.display.update()
 

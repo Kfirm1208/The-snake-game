@@ -7,13 +7,14 @@ class Game_main:
     def __init__(self,size_number):
         self.snake = snake.SNAKE()
         self.fruit = fruit.FRUIT(size_number)
-        self.game_over = False
+        self.score = 0
 
     def update(self,size_number):
+    
         self.snake.snake_move()
         self.check_collision(size_number)
         self.check_fail(size_number)
-        # self.gameover()
+        
 
     def draw_elements(self,size_number,size,surface,apple,font):
         self.draw_grass(size_number,size,surface)
@@ -45,6 +46,7 @@ class Game_main:
                
 #ปัญหาเริ่ม้เกมมาจะขึ้นสถานะ game over ทำให้หน้า game over ขึ้นตลอดเวลา
     def gameover(self):
+        self.record_score()
         game_over()
               
     def draw_grass(self,size_number,size,surface):
@@ -56,6 +58,7 @@ class Game_main:
                     if col%2 == 0 :
                         grass_rect = pygame.Rect(col * size,row * size,size,size)
                         pygame.draw.rect(surface,grass_color,grass_rect)
+    
             else: 
                 for col in range(size_number):
                     if col%2 != 0 :
@@ -71,9 +74,18 @@ class Game_main:
         apple_rect = apple.get_rect(midright = (score_rect.left,score_rect.centery))
         bg_rect = pygame.Rect(apple_rect.left,apple_rect.top,apple_rect.width +
                             apple_rect.width+6,apple_rect.height)
-        
+        self.score = int(score_text)        
         pygame.draw.rect(surface,(167,209,61),bg_rect)
         surface.blit(score_surface,score_rect)
         surface.blit(apple,apple_rect)                 
         pygame.draw.rect(surface,(56,74,12),bg_rect,2)
     
+    
+    def record_score(self):
+        print(self.score)
+        if self.score > 0:
+            with open('score.txt','a') as file:
+                file.write(str(self.score)+ '\n')
+                
+    
+        
