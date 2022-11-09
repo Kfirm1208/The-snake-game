@@ -83,7 +83,8 @@ def main_menu():
 #open score              
 def open_score():
     with open('score.txt','r') as file:
-        file.readlines()
+       a =  file.readlines()
+       
         
 #score page
 def score_page():
