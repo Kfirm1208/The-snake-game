@@ -1,5 +1,5 @@
 import pygame
-
+#for another button (not enter button)
 class Button1:
     def __init__(self, text, width, height, pos, elevation):
         # Core attributes
@@ -52,7 +52,7 @@ class Button1:
             self.top_color = '#475F77'
         return action
 
-
+#for enter button 
 class Button2:
     def __init__(self, text, width, height, pos, elevation):
         # Core attributes
