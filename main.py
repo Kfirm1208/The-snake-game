@@ -80,6 +80,8 @@ def main_menu():
         if Enter_button.draw(win):
             action = True
             if action == True:
+                with open('score.txt','a') as file:
+                    file.write(player_text + ':')
                 player_text = ''
                 action != action
                 
