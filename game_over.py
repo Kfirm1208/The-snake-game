@@ -1,13 +1,13 @@
 import pygame,sys
 from snake import SNAKE
-from button import Button
+from button import Button1
 from text import draw_text
 
 def game_over(score):
     win = pygame.display.set_mode(((40*20),(40*20)))
     font_over = pygame.font.Font('Font/PoetsenOne-Regular.ttf',70)
     font_score = pygame.font.Font('Font/PoetsenOne-Regular.ttf',40)
-    Exit_button = Button('Exit',210,50,(310,600),3)
+    Exit_button = Button1('Exit',210,50,(310,600),3)
      
     run = True
                
