@@ -1,5 +1,4 @@
 import pygame,sys
-from snake import SNAKE
 from button import Button1
 from text import draw_text
 
