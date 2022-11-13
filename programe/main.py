@@ -5,7 +5,6 @@ from pygame.math import Vector2
 from button import Button1,Button2
 from gamemain import Game_main
 
-
 pygame.mixer.pre_init(44100,-16,2,512)
 pygame.init()
 
@@ -51,52 +50,53 @@ pygame.time.set_timer(SCREEN_UPDATE, 110)
 
 # main menu 
 def main_menu():
+
     run = True
     #define player input
     player_text = ''
     #create rectangle
     input_rect = pygame.Rect(402,200,100,20)
-     #music
-    # pygame.mixer.music.load('Sound/songmain.wav')
-    # pygame.mixer.music.play(-1)  
+
     action = False
     while run:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
                 sys.exit()  
-            # input the text   
+            # input the text  
+            
             if event.type == pygame.KEYDOWN:
                 if event.key ==pygame.K_BACKSPACE and event.key != pygame.K_ESCAPE:
                     player_text = player_text[:-1]
                 elif event.key == pygame.K_ESCAPE:
                     run =False
                     sys.exit()         
-                else:    
+                else: 
                     player_text += event.unicode  
-                     
+            
         win.blit(bg_main,(0,0))
-        
-        if Enter_button.draw(win):
-            action = True
-            if action == True:
-                with open('score.txt','a') as file:
-                    file.write(player_text + ':')
-                player_text = ''
-                action != action
-                
+        #Enter name button
+        if player_text !='':
+            if Enter_button.draw(win):
+                action = True
+                if action == True :
+                    with open('programe/score.txt','a') as file:
+                        file.write(player_text + ':')
+                    action != action
+        #play button 
         if Play_button.draw(win):
-            action = True
-            if action ==True:
-                game() 
-                action != action 
-                
+            if player_text !='':
+                action = True
+                if action ==True:
+                    game() 
+                    action != action 
+        #score button        
         if Score_button.draw(win):
             action = True
             if action == True  :
                 score_page()
                 action != action 
-                
+        #Exit button       
         if Exit_button.draw(win):
             action = True
             if action ==True:
@@ -110,39 +110,57 @@ def main_menu():
         pygame.draw.rect(win,(255,255,255),input_rect,2)
         clock.tick(fps)
         pygame.display.update()  
-        
-#open score              
-def open_score():
     
-    try:
-        with open('score.txt','r') as file:
-           for line in file:
-                 score = line[2]       
-        draw_text(str(score),N_font,text_col,win,330,200)
-            
-    except Exception as e:
-        print(e)   
-        
+
+ #save top5 player 
+
+def top5_score():
+    scores = []
+    with open('programe/score.txt','r') as file:
+        for line in file:
+            name,score = line.split(':')
+            score = int(score)
+            scores.append((name,score))
+    scores.sort(key = lambda s: s[1], reverse=True)
+
+    with open('programe/top5player.txt','w') as f:
+        for name,score in scores[:5]:
+            f.write(name+':'+str(score)+'\n')
+            print((name,score))
+
+#show top 5 score            
+def showtop5_score():
+    scores = []
+    with open('programe/top5player.txt','r') as file:
+            for n,line in enumerate(file):
+                text = game_font.render(str(n+1)+"."+line,True,(255,255,255))
+                text_rect = text.get_rect()
+                text_rect.centerx = (screen_size//2) +20
+                text_rect.centery = n*70 + 210
+                win.blit(text,text_rect)
+
 #score page
 def score_page():
     run =True
     action = False
+    top5_score()
     while run:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
                 sys.exit()
-            win.blit(bg_main,(0,0))    
+            win.blit(bg_main,(0,0))  
+
             if Back_button.draw(win):
                 action =True
                 if action ==True:
                     main_menu() 
                     action != action   
-        draw_text('Score',T_font,text_col,win,330,100)
-        open_score()  
+        draw_text('Top 5 player score',T_font,text_col,win,100,100)
+        showtop5_score()
         clock.tick(fps)     
         pygame.display.update()
-
+  
 #game   
 def game():  
     run = True

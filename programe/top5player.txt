@@ -1,0 +1,5 @@
+Zeer o:41
+turn:32
+IO:32
+interstala:26
+U:23

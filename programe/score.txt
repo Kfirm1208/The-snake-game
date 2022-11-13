@@ -1,0 +1,24 @@
+firm:8
+gun:10
+Ohm:14
+Zeer o:41
+O:3
+firm:4
+Zeer o:2
+gun:6
+Nick:0
+new:17
+turn:32
+Run:17
+i:18
+WE:9
+interstala:26
+ffds:5
+Runner:5
+U:23
+Teerut:6
+FA:12
+P:12
+Rt:2
+Tu:4
+IO:32

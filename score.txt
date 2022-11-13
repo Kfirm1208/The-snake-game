@@ -1,4 +1,0 @@
-firm:8
-gun:10
-Ohm:14
-Zeer o:41

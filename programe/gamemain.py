@@ -84,8 +84,9 @@ class Game_main:
     def record_score(self):
         if self.score >= 0:
             try:
-                with open('score.txt','a') as file:
-                    file.write(str(self.score) + "\n")
+                with open('programe/score.txt','a') as file:
+                    file.write(
+                    str(self.score) + "\n")
             except Exception as e:
                 print(e)        
     
