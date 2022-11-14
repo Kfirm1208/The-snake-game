@@ -81,7 +81,7 @@ def main_menu():
                 action = True
                 if action == True :
                     with open('programe/score.txt','a') as file:
-                        file.write(player_text + ':')
+                        file.write(player_text+ ':')
                     action != action
         #play button 
         if Play_button.draw(win):
@@ -127,12 +127,12 @@ def top5_score():
         for name,score in scores[:5]:
             f.write(name+':'+str(score)+'\n')
             print((name,score))
-
+          
 #show top 5 score            
 def showtop5_score():
     with open('programe/top5player.txt','r') as file:
             for n,line in enumerate(file):
-                text = game_font.render(str(n+1)+"."+line,True,(255,255,255))
+                text = game_font.render(str(n+1)+"."+line[:-1],True,(255,255,255))
                 text_rect = text.get_rect()
                 text_rect.centerx = (screen_size//2) +20
                 text_rect.centery = n*70 + 210

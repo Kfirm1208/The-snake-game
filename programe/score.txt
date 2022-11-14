@@ -25,4 +25,5 @@ IO:32
 Nui:16
 tu:16
 fim:3
-2
+HUn:6
+fgd:9
