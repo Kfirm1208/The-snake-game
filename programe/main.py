@@ -130,7 +130,6 @@ def top5_score():
 
 #show top 5 score            
 def showtop5_score():
-    scores = []
     with open('programe/top5player.txt','r') as file:
             for n,line in enumerate(file):
                 text = game_font.render(str(n+1)+"."+line,True,(255,255,255))
