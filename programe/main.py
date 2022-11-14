@@ -64,7 +64,6 @@ def main_menu():
                 run = False
                 sys.exit()  
             # input the text  
-            
             if event.type == pygame.KEYDOWN:
                 if event.key ==pygame.K_BACKSPACE and event.key != pygame.K_ESCAPE:
                     player_text = player_text[:-1]
@@ -75,6 +74,7 @@ def main_menu():
                     player_text += event.unicode  
             
         win.blit(bg_main,(0,0))
+        
         #Enter name button
         if player_text !='':
             if Enter_button.draw(win):
@@ -82,6 +82,7 @@ def main_menu():
                 if action == True :
                     with open('programe/score.txt','a') as file:
                         file.write(player_text+ ':')
+                    print('save')    
                     action != action
         #play button 
         if Play_button.draw(win):

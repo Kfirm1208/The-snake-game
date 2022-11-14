@@ -27,3 +27,9 @@ tu:16
 fim:3
 HUn:6
 fgd:9
+washiralongkon:1
+washiralongkon:7
+Ku:6
+dragon:5
+IO:38
+KO:14
