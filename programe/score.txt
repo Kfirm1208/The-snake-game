@@ -34,3 +34,6 @@ dragon:5
 IO:38
 KO:14
 YU:21
+10:23
+ju:10
+We are the chanmpion:17
